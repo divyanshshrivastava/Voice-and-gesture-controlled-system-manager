@@ -5,6 +5,9 @@ from time import sleep
 from core import config
 from core.state import app_state, Mode
 
+from kratos_io.speech_output import kratos_voice
+from kratos_io.speech_input import listen_once
+
 
 def demo_state_flow():
     print("=== Kratos demo start ===")
@@ -33,6 +36,10 @@ def demo_state_flow():
     print(f"Listening after timeout? {app_state.listening}")
     print("=== Kratos demo end ===")
 
-
 if __name__ == "__main__":
     demo_state_flow()
+    print("\nTesting Kratos voice…")
+    kratos_voice.say("Kratos is online.")
+
+    print(f"You said: {text}")
+    kratos_voice.say(f"You said {text}")

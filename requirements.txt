@@ -1,2 +1,5 @@
 pyttsx3
 pypiwin32
+
+SpeechRecognition
+pyaudio
