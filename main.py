@@ -38,8 +38,8 @@ def demo_state_flow():
 
 if __name__ == "__main__":
     demo_state_flow()
-    print("\nTesting Kratos voice…")
-    kratos_voice.say("Kratos is online.")
+    print("\nSay something: ")
+    text = listen_once()
 
     print(f"You said: {text}")
     kratos_voice.say(f"You said {text}")
