@@ -6,6 +6,7 @@ from core import config
 from kratos_io.speech_output import kratos_voice
 from kratos_io.speech_input import listen_for_wake_word, listen_for_command
 from kratos_io.wake_word import text_contains_hotword
+from core.orchestrator import handle_command_text
 
 
 def kratos_main_loop_simple():
@@ -13,7 +14,7 @@ def kratos_main_loop_simple():
     Simple two-step loop:
 
     1) Wait for wake word ("Kratos")
-    2) After wake word, listen once for a command and repeat it back
+    2) After wake word, listen once for a command and handle it via orchestrator
 
     Then go back to waiting for wake word again.
     """
@@ -40,7 +41,7 @@ def kratos_main_loop_simple():
             print(f"[Cmd STT] You said: {cmd_text!r}")
 
             if cmd_text:
-                kratos_voice.say(f"You said: {cmd_text}")
+                handle_command_text(cmd_text)
             else:
                 kratos_voice.say("I did not catch that.")
 
